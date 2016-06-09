@@ -1,0 +1,27 @@
+1) ¿Para que se utiliza === en PHP?
+Significa idéntico, o sea que compara variables con el mismo valor contenido y también del mismo tipo (int, string, etc).
+Por ejemplo cuando creas un formulario y colocas  contraseña nueva y en el otro campo repita contraseña nueva,
+este operador lo utilizas para comparar que estos 2 campos sean iguales.
+
+2) ¿Cuál es la diferencia entre include & include_once?
+EL include puede cargar mas de una vez un archivo dentro de otro tantas veces lo pidamos, sin importar que ya esté incluido, en cambio el include_once evalúa si ya está incluido ese archivo, si es así, no lo incluye nuevamente, de lo contrario lo incluye una única vez.
+
+3) ¿Qué imprimirá el siguiente código en la pantalla?
+
+$num = 10;
+function multiply(){
+$num = $num * 10;
+}
+multiply();
+echo $num;
+
+Imprimer el valor 10 que fue declarado sobre la funcion multiply. La funcion a simple viste debería imprimir 100 pero está mal hecha, una forma de corregirla sin hacerle mayores modificaciones sería:
+
+<?php
+function multiply(){
+$num = 10;
+$res = $num * 10;
+echo $res;
+}
+multiply();
+?>

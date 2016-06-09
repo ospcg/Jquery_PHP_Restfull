@@ -1,0 +1,32 @@
+Desafío 3
+
+Encuentra y resuelve los problemas del siguiente código:
+
+private function get($id) {
+	$response = array();
+
+	if($s_user = $this->db->select('SELECT `user`, `api_key`, `email`, `first_name` `user` WHERE `id` = :id', array(':id' => $id))) {
+		$response['token'] = $s_user['api_key'];
+		$response['username'] = $s_user['user'];
+		$response['email'] = $s_user['email'];
+		$response = $s_user['first_name'];
+	}
+
+	echo $response;
+}
+
+1.-La consulta SQL SELECT esta incompleta, le falta el FROM, yo supongo que es entre `first_name` FROM `user`
+2.-Una comilla simple faltante en ':id'
+
+private function get($id) {
+	$response = array();
+
+	if($s_user = $this->db->select('SELECT `user`, `api_key`, `email`, `first_name` FROM `user` WHERE `id` = ':id'', array(':id' => $id))) {
+		$response['token'] = $s_user['api_key'];
+		$response['username'] = $s_user['user'];
+		$response['email'] = $s_user['email'];
+		$response ['first_name']= $s_user['first_name'];
+	}
+
+	echo $response;
+}
